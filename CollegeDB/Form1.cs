@@ -56,7 +56,7 @@ namespace CollegeDB
             chkBox.Checked = false; // Reset checkbox after adding
             LoadData(); // Reload data after inserting
         }
-
+ // fixed update button
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (selectedCollegeID == 0)
