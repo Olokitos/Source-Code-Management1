@@ -7,39 +7,70 @@ namespace CollegeDB
 {
     public partial class Form1 : Form
     {
+        // --------------------------------------------------------------------
+        // Fields
+        // --------------------------------------------------------------------
         private int selectedCollegeID = 0;
 
+        // --------------------------------------------------------------------
+        // Constructor
+        // --------------------------------------------------------------------
         public Form1()
         {
             InitializeComponent();
         }
 
+        // --------------------------------------------------------------------
+        // Form Events
+        // --------------------------------------------------------------------
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadData(); // Load data on startup
+            // Load data on startup
+            LoadData();
         }
 
+        // --------------------------------------------------------------------
+        // Data Loading
+        // --------------------------------------------------------------------
+        /// <summary>
+        /// Fetches and binds data from the College table to dataGridView1.
+        /// </summary>
         private void LoadData()
         {
             Database db = new Database();
-            DataTable dt = db.GetDataTable("SELECT CollegeID, CollegeName, CollegeCode, CASE WHEN IsActive = 1 THEN 'Yes' ELSE 'No' END AS IsActive FROM College");
+            DataTable dt = db.GetDataTable(
+                "SELECT CollegeID, CollegeName, CollegeCode, " +
+                "CASE WHEN IsActive = 1 THEN 'Yes' ELSE 'No' END AS IsActive " +
+                "FROM College"
+            );
             dataGridView1.DataSource = dt;
         }
 
-        // Registration button
+        // --------------------------------------------------------------------
+        // CRUD Operations
+        // --------------------------------------------------------------------
+        
+        /// <summary>
+        /// Inserts a new College record into the database.
+        /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(CollegeNameText.Text) || string.IsNullOrWhiteSpace(CollegeCodeText.Text))
+            // Validate input
+            if (string.IsNullOrWhiteSpace(CollegeNameText.Text) || 
+                string.IsNullOrWhiteSpace(CollegeCodeText.Text))
             {
                 MessageBox.Show("Please enter both College Name and Code.");
                 return;
             }
 
-            int isActive = chkBox.Checked ? 1 : 0; // If checkbox is checked, set to 1 (Yes), else 0 (No)
+            int isActive = chkBox.Checked ? 1 : 0; // 1 = Yes, 0 = No
 
-            string query = "INSERT INTO College (CollegeName, CollegeCode, IsActive) VALUES (@CollegeName, @CollegeCode, @IsActive)";
+            string query = @"
+                INSERT INTO College (CollegeName, CollegeCode, IsActive) 
+                VALUES (@CollegeName, @CollegeCode, @IsActive)";
 
-            using (MySqlConnection con = new MySqlConnection("server=localhost;database=CollegeDB;user=root;password=123456789;"))
+            using (MySqlConnection con = new MySqlConnection(
+                   "server=localhost;database=CollegeDB;user=root;password=123456789;"))
             {
                 con.Open();
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
@@ -54,29 +85,36 @@ namespace CollegeDB
             MessageBox.Show("College Added!");
             CollegeNameText.Clear();
             CollegeCodeText.Clear();
-            chkBox.Checked = false; // Reset checkbox after adding
+            chkBox.Checked = false; 
             LoadData(); // Reload data after inserting
         }
 
-        // Improved update button
+        /// <summary>
+        /// Updates the selected College record in the database.
+        /// </summary>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            // Validate that a college is selected and input fields are not empty.
+            // Validate that a college is selected and input fields are not empty
             if (selectedCollegeID == 0)
             {
                 MessageBox.Show("Please select a college first.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(CollegeNameText.Text) || string.IsNullOrWhiteSpace(CollegeCodeText.Text))
+            if (string.IsNullOrWhiteSpace(CollegeNameText.Text) || 
+                string.IsNullOrWhiteSpace(CollegeCodeText.Text))
             {
                 MessageBox.Show("Please enter both College Name and Code.");
                 return;
             }
 
-            string query = "UPDATE College SET CollegeName = @CollegeName, CollegeCode = @CollegeCode WHERE CollegeID = @CollegeID";
+            string query = @"
+                UPDATE College 
+                SET CollegeName = @CollegeName, CollegeCode = @CollegeCode 
+                WHERE CollegeID = @CollegeID";
 
-            using (MySqlConnection con = new MySqlConnection("server=localhost;database=CollegeDB;user=root;password=123456789;"))
+            using (MySqlConnection con = new MySqlConnection(
+                   "server=localhost;database=CollegeDB;user=root;password=123456789;"))
             {
                 con.Open();
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
@@ -95,21 +133,31 @@ namespace CollegeDB
             LoadData(); // Reload data after updating
         }
 
+        /// <summary>
+        /// Deletes the selected College record from the database.
+        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            // Ensure a college is selected
             if (selectedCollegeID == 0)
             {
                 MessageBox.Show("Please select a college first.");
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this college?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete this college?", 
+                "Confirm Deletion", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning
+            );
 
             if (result == DialogResult.Yes)
             {
                 string query = "DELETE FROM College WHERE CollegeID = @CollegeID";
 
-                using (MySqlConnection con = new MySqlConnection("server=localhost;database=CollegeDB;user=root;password=123456789;"))
+                using (MySqlConnection con = new MySqlConnection(
+                       "server=localhost;database=CollegeDB;user=root;password=123456789;"))
                 {
                     con.Open();
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
@@ -127,14 +175,38 @@ namespace CollegeDB
             }
         }
 
+        // --------------------------------------------------------------------
+        // Additional Button Handlers
+        // --------------------------------------------------------------------
+        
+        /// <summary>
+        /// Refreshes the data in the DataGridView.
+        /// </summary>
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            LoadData(); // Simply reload data
+            LoadData();
         }
 
+        /// <summary>
+        /// Opens the Department Management form.
+        /// </summary>
+        private void DepartmentButton_Click(object sender, EventArgs e)
+        {
+            DepartmentManagement dept = new DepartmentManagement();
+            dept.Show();
+        }
+
+        // --------------------------------------------------------------------
+        // DataGridView Events
+        // --------------------------------------------------------------------
+        
+        /// <summary>
+        /// Handles clicks in the DataGridView cells to select a College record.
+        /// </summary>
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Ensure a valid row is clicked
+            // Ensure a valid row is clicked
+            if (e.RowIndex >= 0)
             {
                 selectedCollegeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["CollegeID"].Value);
                 CollegeNameText.Text = dataGridView1.Rows[e.RowIndex].Cells["CollegeName"].Value.ToString();
@@ -142,14 +214,8 @@ namespace CollegeDB
 
                 // Set checkbox state based on IsActive column
                 string isActiveText = dataGridView1.Rows[e.RowIndex].Cells["IsActive"].Value.ToString();
-                chkBox.Checked = isActiveText == "Yes";
+                chkBox.Checked = (isActiveText == "Yes");
             }
-        }
-
-        private void DepartmentButton_Click(object sender, EventArgs e)
-        {
-            DepartmentManagement dept = new DepartmentManagement();
-            dept.Show();
         }
     }
 }
