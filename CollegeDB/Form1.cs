@@ -51,7 +51,7 @@ namespace CollegeDB
         // --------------------------------------------------------------------
         
         /// <summary>
-        /// Inserts a new College record into the database.
+        /// Inserts a new College record into the database with error handling.
         /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
@@ -69,24 +69,31 @@ namespace CollegeDB
                 INSERT INTO College (CollegeName, CollegeCode, IsActive) 
                 VALUES (@CollegeName, @CollegeCode, @IsActive)";
 
-            using (MySqlConnection con = new MySqlConnection(
-                   "server=localhost;database=CollegeDB;user=root;password=123456789;"))
+            try
             {
-                con.Open();
-                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                using (MySqlConnection con = new MySqlConnection(
+                       "server=localhost;database=CollegeDB;user=root;password=123456789;"))
                 {
-                    cmd.Parameters.AddWithValue("@CollegeName", CollegeNameText.Text);
-                    cmd.Parameters.AddWithValue("@CollegeCode", CollegeCodeText.Text);
-                    cmd.Parameters.AddWithValue("@IsActive", isActive);
-                    cmd.ExecuteNonQuery();
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@CollegeName", CollegeNameText.Text);
+                        cmd.Parameters.AddWithValue("@CollegeCode", CollegeCodeText.Text);
+                        cmd.Parameters.AddWithValue("@IsActive", isActive);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-            }
 
-            MessageBox.Show("College Added!");
-            CollegeNameText.Clear();
-            CollegeCodeText.Clear();
-            chkBox.Checked = false; 
-            LoadData(); // Reload data after inserting
+                MessageBox.Show("College Added!");
+                CollegeNameText.Clear();
+                CollegeCodeText.Clear();
+                chkBox.Checked = false; // Reset checkbox after adding
+                LoadData(); // Reload data after inserting
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding college: " + ex.Message);
+            }
         }
 
         /// <summary>
