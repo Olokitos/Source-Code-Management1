@@ -12,7 +12,6 @@ namespace CollegeDB
         // Fields
         // --------------------------------------------------------------------
         private int selectedCollegeID = 0;
-        private string connectionString = "server=localhost;database=CollegeDB;user=root;password=123456789;";
         private string logFile = "activity.log";
 
         // --------------------------------------------------------------------
@@ -33,19 +32,8 @@ namespace CollegeDB
         }
 
         // --------------------------------------------------------------------
-        // Database Connection Helper
-        // --------------------------------------------------------------------
-        private MySqlConnection GetConnection()
-        {
-            return new MySqlConnection(connectionString);
-        }
-
-        // --------------------------------------------------------------------
         // Logging Utility
         // --------------------------------------------------------------------
-        /// <summary>
-        /// Appends log messages to a log file.
-        /// </summary>
         private void LogActivity(string message)
         {
             try
@@ -55,7 +43,6 @@ namespace CollegeDB
             }
             catch (Exception ex)
             {
-                // If logging fails, show a message box (or handle accordingly)
                 MessageBox.Show("Logging failed: " + ex.Message);
             }
         }
@@ -86,10 +73,6 @@ namespace CollegeDB
         // --------------------------------------------------------------------
         // Input Validation
         // --------------------------------------------------------------------
-        /// <summary>
-        /// Validates the input fields for College Name and Code.
-        /// </summary>
-        /// <returns>True if valid; otherwise, false.</returns>
         private bool IsInputValid()
         {
             if (string.IsNullOrWhiteSpace(CollegeNameText.Text) ||
@@ -118,17 +101,12 @@ namespace CollegeDB
 
             try
             {
-                using (MySqlConnection con = GetConnection())
-                {
-                    con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@CollegeName", CollegeNameText.Text);
-                        cmd.Parameters.AddWithValue("@CollegeCode", CollegeCodeText.Text);
-                        cmd.Parameters.AddWithValue("@IsActive", isActive);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+                Database db = new Database();
+                int rows = db.ExecuteNonQuery(query,
+                    new MySqlParameter("@CollegeName", CollegeNameText.Text),
+                    new MySqlParameter("@CollegeCode", CollegeCodeText.Text),
+                    new MySqlParameter("@IsActive", isActive)
+                );
 
                 MessageBox.Show("College Added!");
                 LogActivity("College added successfully.");
@@ -162,17 +140,12 @@ namespace CollegeDB
 
             try
             {
-                using (MySqlConnection con = GetConnection())
-                {
-                    con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@CollegeID", selectedCollegeID);
-                        cmd.Parameters.AddWithValue("@CollegeName", CollegeNameText.Text);
-                        cmd.Parameters.AddWithValue("@CollegeCode", CollegeCodeText.Text);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+                Database db = new Database();
+                int rows = db.ExecuteNonQuery(query,
+                    new MySqlParameter("@CollegeID", selectedCollegeID),
+                    new MySqlParameter("@CollegeName", CollegeNameText.Text),
+                    new MySqlParameter("@CollegeCode", CollegeCodeText.Text)
+                );
 
                 MessageBox.Show("College Updated!");
                 LogActivity("College updated successfully. ID: " + selectedCollegeID);
@@ -208,15 +181,11 @@ namespace CollegeDB
 
                 try
                 {
-                    using (MySqlConnection con = GetConnection())
-                    {
-                        con.Open();
-                        using (MySqlCommand cmd = new MySqlCommand(query, con))
-                        {
-                            cmd.Parameters.AddWithValue("@CollegeID", selectedCollegeID);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
+                    Database db = new Database();
+                    int rows = db.ExecuteNonQuery(query,
+                        new MySqlParameter("@CollegeID", selectedCollegeID)
+                    );
+
                     MessageBox.Show("College Deleted!");
                     LogActivity("College deleted successfully. ID: " + selectedCollegeID);
                     ClearInputs();
