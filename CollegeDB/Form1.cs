@@ -25,7 +25,7 @@ namespace CollegeDB
             DataTable dt = db.GetDataTable("SELECT CollegeID, CollegeName, CollegeCode, CASE WHEN IsActive = 1 THEN 'Yes' ELSE 'No' END AS IsActive FROM College");
             dataGridView1.DataSource = dt;
         }
-
+       // Registration button
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CollegeNameText.Text) || string.IsNullOrWhiteSpace(CollegeCodeText.Text))
