@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\collegedb\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|solutionrelative:collegedb\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|c:\\users\\ken\\desktop\\db\\college\\collegedb\\collegedb\\departmentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|solutionrelative:collegedb\\departmentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|c:\\users\\ken\\desktop\\db\\college\\collegedb\\collegedb\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|solutionrelative:collegedb\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\collegedb\\departmentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|solutionrelative:collegedb\\departmentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|c:\\users\\ken\\desktop\\db\\college\\collegedb\\collegedb\\departmentmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|solutionrelative:collegedb\\departmentmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|c:\\users\\ken\\desktop\\db\\college\\collegedb\\collegedb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|solutionrelative:collegedb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|c:\\users\\ken\\desktop\\db\\college\\collegedb\\collegedb\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1DA6A8C-1B00-47A7-887D-EF64FFBEA7BD}|CollegeDB\\CollegeDB.csproj|solutionrelative:collegedb\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{601CE6A8-1AD1-4540-91CC-AA6EFD0EFFCA}|Solution Items{601CE6A8-1AD1-4540-91CC-AA6EFD0EFFCA}|C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\App.config||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{601CE6A8-1AD1-4540-91CC-AA6EFD0EFFCA}|Solution Items{601CE6A8-1AD1-4540-91CC-AA6EFD0EFFCA}|solutionrelative:App.config||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Form1.cs",
+              "RelativeDocumentMoniker": "CollegeDB\\Form1.cs",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Form1.cs",
+              "RelativeToolTip": "CollegeDB\\Form1.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAjwBIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T03:46:16.283Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Database.cs",
+              "RelativeDocumentMoniker": "CollegeDB\\Database.cs",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Database.cs",
+              "RelativeToolTip": "CollegeDB\\Database.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T03:56:35.69Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DepartmentManagement.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\DepartmentManagement.cs",
+              "RelativeDocumentMoniker": "CollegeDB\\DepartmentManagement.cs",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\DepartmentManagement.cs [Design]",
+              "RelativeToolTip": "CollegeDB\\DepartmentManagement.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T00:26:53.919Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "CollegeDB\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Form1.Designer.cs",
+              "RelativeToolTip": "CollegeDB\\Form1.Designer.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAWwJ4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T04:28:33.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DepartmentManagement.cs",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\DepartmentManagement.cs",
+              "RelativeDocumentMoniker": "CollegeDB\\DepartmentManagement.cs",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\DepartmentManagement.cs",
+              "RelativeToolTip": "CollegeDB\\DepartmentManagement.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAmwHUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T00:09:41.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Form1.cs",
+              "RelativeDocumentMoniker": "CollegeDB\\Form1.cs",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\Form1.cs [Design]",
+              "RelativeToolTip": "CollegeDB\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T04:12:07.039Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DepartmentManagement.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\DepartmentManagement.Designer.cs",
+              "RelativeDocumentMoniker": "CollegeDB\\DepartmentManagement.Designer.cs",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\CollegeDB\\DepartmentManagement.Designer.cs",
+              "RelativeToolTip": "CollegeDB\\DepartmentManagement.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T00:24:02.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\Ken\\Desktop\\db\\college\\CollegeDB\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-02-26T03:53:20.472Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
