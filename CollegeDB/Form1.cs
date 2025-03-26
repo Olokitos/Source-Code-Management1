@@ -25,7 +25,8 @@ namespace CollegeDB
             DataTable dt = db.GetDataTable("SELECT CollegeID, CollegeName, CollegeCode, CASE WHEN IsActive = 1 THEN 'Yes' ELSE 'No' END AS IsActive FROM College");
             dataGridView1.DataSource = dt;
         }
-       // Registratin button
+
+        // Registration button
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CollegeNameText.Text) || string.IsNullOrWhiteSpace(CollegeCodeText.Text))
@@ -56,9 +57,11 @@ namespace CollegeDB
             chkBox.Checked = false; // Reset checkbox after adding
             LoadData(); // Reload data after inserting
         }
- // fixed update button
+
+        // Improved update button
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            // Validate that a college is selected and input fields are not empty.
             if (selectedCollegeID == 0)
             {
                 MessageBox.Show("Please select a college first.");
