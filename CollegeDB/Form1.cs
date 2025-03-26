@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -12,6 +13,7 @@ namespace CollegeDB
         // --------------------------------------------------------------------
         private int selectedCollegeID = 0;
         private string connectionString = "server=localhost;database=CollegeDB;user=root;password=123456789;";
+        private string logFile = "activity.log";
 
         // --------------------------------------------------------------------
         // Constructor
@@ -39,6 +41,26 @@ namespace CollegeDB
         }
 
         // --------------------------------------------------------------------
+        // Logging Utility
+        // --------------------------------------------------------------------
+        /// <summary>
+        /// Appends log messages to a log file.
+        /// </summary>
+        private void LogActivity(string message)
+        {
+            try
+            {
+                string logEntry = $"{DateTime.Now}: {message}{Environment.NewLine}";
+                File.AppendAllText(logFile, logEntry);
+            }
+            catch (Exception ex)
+            {
+                // If logging fails, show a message box (or handle accordingly)
+                MessageBox.Show("Logging failed: " + ex.Message);
+            }
+        }
+
+        // --------------------------------------------------------------------
         // Data Loading
         // --------------------------------------------------------------------
         private void LoadData()
@@ -52,20 +74,18 @@ namespace CollegeDB
                     "FROM College"
                 );
                 dataGridView1.DataSource = dt;
+                LogActivity("Data loaded successfully.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading data: " + ex.Message);
+                LogActivity("Error loading data: " + ex.Message);
             }
         }
 
         // --------------------------------------------------------------------
         // CRUD Operations
         // --------------------------------------------------------------------
-        
-        /// <summary>
-        /// Inserts a new College record into the database with error handling.
-        /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CollegeNameText.Text) ||
@@ -95,18 +115,17 @@ namespace CollegeDB
                 }
 
                 MessageBox.Show("College Added!");
+                LogActivity("College added successfully.");
                 ClearInputs();
                 LoadData();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding college: " + ex.Message);
+                LogActivity("Error adding college: " + ex.Message);
             }
         }
 
-        /// <summary>
-        /// Updates the selected College record in the database with error handling.
-        /// </summary>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (selectedCollegeID == 0)
@@ -142,6 +161,7 @@ namespace CollegeDB
                 }
 
                 MessageBox.Show("College Updated!");
+                LogActivity("College updated successfully. ID: " + selectedCollegeID);
                 ClearInputs();
                 selectedCollegeID = 0;
                 LoadData();
@@ -149,12 +169,10 @@ namespace CollegeDB
             catch (Exception ex)
             {
                 MessageBox.Show("Error updating college: " + ex.Message);
+                LogActivity("Error updating college: " + ex.Message);
             }
         }
 
-        /// <summary>
-        /// Deletes the selected College record from the database with error handling.
-        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (selectedCollegeID == 0)
@@ -167,7 +185,8 @@ namespace CollegeDB
                 "Are you sure you want to delete this college?",
                 "Confirm Deletion",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
+                MessageBoxIcon.Warning
+            );
 
             if (result == DialogResult.Yes)
             {
@@ -185,6 +204,7 @@ namespace CollegeDB
                         }
                     }
                     MessageBox.Show("College Deleted!");
+                    LogActivity("College deleted successfully. ID: " + selectedCollegeID);
                     ClearInputs();
                     selectedCollegeID = 0;
                     LoadData();
@@ -192,6 +212,7 @@ namespace CollegeDB
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error deleting college: " + ex.Message);
+                    LogActivity("Error deleting college: " + ex.Message);
                 }
             }
         }
@@ -236,4 +257,3 @@ namespace CollegeDB
         }
     }
 }
-
