@@ -84,14 +84,30 @@ namespace CollegeDB
         }
 
         // --------------------------------------------------------------------
-        // CRUD Operations
+        // Input Validation
         // --------------------------------------------------------------------
-        private void SaveButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Validates the input fields for College Name and Code.
+        /// </summary>
+        /// <returns>True if valid; otherwise, false.</returns>
+        private bool IsInputValid()
         {
             if (string.IsNullOrWhiteSpace(CollegeNameText.Text) ||
                 string.IsNullOrWhiteSpace(CollegeCodeText.Text))
             {
                 MessageBox.Show("Please enter both College Name and Code.");
+                return false;
+            }
+            return true;
+        }
+
+        // --------------------------------------------------------------------
+        // CRUD Operations
+        // --------------------------------------------------------------------
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (!IsInputValid())
+            {
                 return;
             }
 
@@ -134,10 +150,8 @@ namespace CollegeDB
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(CollegeNameText.Text) ||
-                string.IsNullOrWhiteSpace(CollegeCodeText.Text))
+            if (!IsInputValid())
             {
-                MessageBox.Show("Please enter both College Name and Code.");
                 return;
             }
 
